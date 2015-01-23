@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <style type="text/css">
+      #map-canvas { height: 600px; width: 800px;}
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=Your API KEY"></script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+
+    <h1> Enter The Coordinates Of Your Destination</h1>
+    <input type='text' id='long' placeholder='longitude please'>
+    <input type='text' id='lat' placeholder='latitude please'>
+
+
+    <script>
+    //this requires fs to be brought into the file. 
+      // var api_key = fs.readFileSync('api.txt', 'utf8');
+      // console.log(api_key)
+
+      // another way to do this in the script tag of an html file is to run something similar to what this website has
+      //http://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html#fbid=BagI2eqHcjz
+
+      var latitude = parseFloat(prompt("What is the latitude of your destination traveler"));
+      var longitude = parseFloat(prompt("What is the longitude of your destination traveler"));
+
+      var mapOptions = {
+        center: { lat: latitude, lng: longitude},
+        zoom: 13
+      }
+
+      // var mapOptions = {
+      //   center: { lat: 40.7127, lng: -74.0059},
+      //   zoom: 11
+      // };
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    </script>
+  </body>
+</html>
